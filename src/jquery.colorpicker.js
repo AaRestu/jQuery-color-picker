@@ -36,7 +36,10 @@
  					})
  				})
  			}).append($('<div>', {
-				class : 'picker_hue'
+				class : 'picker_hue',
+				html : $('<div>', {
+					class : 'picker_hue_cursor'
+				})
 			}));
 
 
@@ -46,21 +49,43 @@
  		init_event = function(opt) {
 
 			$(opt.selector + " .picker_color").on('mousedown', function(e) {
-				var x = e.pageX - 1 - $(this).offset().left;
-				var y = e.pageY - 1 - $(this).offset().top;
+
+				var x = e.pageX - $(this).offset().left;
+				var y = e.pageY - $(this).offset().top;
 
 				$(opt.selector + " .colorpicker-circle").css({'left' : x + 'px', 'top' : y + 'px'});
 
 				$(this).on('mousemove', function(e) {
-					var x = e.pageX - 1 - $(this).offset().left;
-					var y = e.pageY - 1 - $(this).offset().top;
+					var x = e.pageX - $(this).offset().left;
+					var y = e.pageY - $(this).offset().top;
 
 					$(opt.selector + " .colorpicker-circle").css({'left' : x + 'px', 'top' : y + 'px'});
 				});
 			}).on('mouseup', function(e) {
 				$(this).off('mousemove');
 			});
-			
+
+			$(opt.selector + " .picker_hue").on('mousedown', function(e) {
+
+				var y = e.pageY - $(this).offset().top;
+
+				var picker_hue_h = $(opt.selector + " .picker_hue").height() - 4;
+
+				if(y >= 0 && y - 3 <= picker_hue_h) {
+					$(opt.selector + " .picker_hue_cursor").css({ 'top' : y - 3 + 'px'});
+				}
+
+				$(this).on('mousemove', function(e) {
+					var y = e.pageY - $(this).offset().top;
+
+					if(y >= 0 && y - 3 <= picker_hue_h) {
+						$(opt.selector + " .picker_hue_cursor").css({ 'top' : y - 3 + 'px'});
+					}
+				});
+			}).on('mouseup', function(e) {
+				$(this).off('mousemove');
+			});
+
  		},
  		call_on_ready = function(func, opt) {
  			$(document).ready(function() {
