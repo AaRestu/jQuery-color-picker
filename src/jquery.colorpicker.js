@@ -44,14 +44,23 @@
  			$(opt.selector).html(element);
  		},
  		init_event = function(opt) {
- 			//TODO
 
- 			$(opt.selector + " .picker_color").click(function(e) {
- 				var x = e.pageX - $(this).offset().left;
-				var y = e.pageY - $(this).offset().top;
+			$(opt.selector + " .picker_color").on('mousedown', function(e) {
+				var x = e.pageX - 1 - $(this).offset().left;
+				var y = e.pageY - 1 - $(this).offset().top;
 
 				$(opt.selector + " .colorpicker-circle").css({'left' : x + 'px', 'top' : y + 'px'});
- 			});
+
+				$(this).on('mousemove', function(e) {
+					var x = e.pageX - 1 - $(this).offset().left;
+					var y = e.pageY - 1 - $(this).offset().top;
+
+					$(opt.selector + " .colorpicker-circle").css({'left' : x + 'px', 'top' : y + 'px'});
+				});
+			}).on('mouseup', function(e) {
+				$(this).off('mousemove');
+			});
+			
  		},
  		call_on_ready = function(func, opt) {
  			$(document).ready(function() {
