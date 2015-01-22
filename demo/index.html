@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Picker</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var pbh = $('.picker_box_width').parent().height();
+		$('.picker_box_width').css('width', pbh + 'px');
+
+		$('.picker_box_height').css('height', pbh + 'px');
+	});
+	</script>
+	<style type="text/css">
+		.colorpicker {
+			width: 300px;
+			height: 100px;
+		}
+		.picker_color {
+			display: inline-block;
+			height: inherit;
+			background-color: rgb(255, 166, 0);
+		}
+		.colorpicker_right {
+			width: inherit;
+			height: inherit;
+			background: -moz-linear-gradient(right, rgba(255,255,255, 1), rgba(255,255,255, 0));
+			background: -webkit-gradient(right, rgba(255,255,255, 1), rgba(255,255,255, 0));
+			background: -webkit-linear-gradient(right, rgba(255,255,255, 1), rgba(255,255,255, 0));
+			background: -o-linear-gradient(right, rgba(255,255,255, 1), rgba(255,255,255, 0));
+			background: -ms-linear-gradient(right, rgba(255,255,255, 1), rgba(255,255,255, 0));
+			background: linear-gradient(to right, rgba(255,255,255, 1), rgba(255,255,255, 0));
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+		}
+		.colorpicker_bottom {
+			width: inherit;
+			height: inherit;
+			background: -moz-linear-gradient(bottom, rgba(0,0,0, 0), rgba(0,0,0, 1));
+			background: -webkit-gradient(bottom, rgba(0,0,0, 0), rgba(0,0,0, 1));
+			background: -webkit-linear-gradient(bottom, rgba(0,0,0, 0), rgba(0,0,0, 1));
+			background: -o-linear-gradient(bottom, rgba(0,0,0, 0), rgba(0,0,0, 1));
+			background: -ms-linear-gradient(bottom, rgba(0,0,0, 0), rgba(0,0,0, 1));
+			background: linear-gradient(to bottom, rgba(0,0,0, 0), rgba(0,0,0, 1));
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+		}
+		.picker_hue {
+			display: inline-block;
+			width: 20px;
+
+			background:-webkit-linear-gradient(top center,#ff0000,#ff0080,#ff00ff,#8000ff,#0000ff,#0080ff,#00ffff,#00ff80,#00ff00,#80ff00,#ffff00,#ff8000,#ff0000); 
+			background:-moz-linear-gradient(top center,#ff0000,#ff0080,#ff00ff,#8000ff,#0000ff,#0080ff,#00ffff,#00ff80,#00ff00,#80ff00,#ffff00,#ff8000,#ff0000); 
+			background:linear-gradient(to bottom,#ff0000,#ff0080,#ff00ff,#8000ff,#0000ff,#0080ff,#00ffff,#00ff80,#00ff00,#80ff00,#ffff00,#ff8000,#ff0000); 
+		}
+	</style>
+</head>
+<body>
+	<div class="colorpicker">
+		<div class="picker_color picker_box_width">
+			<div class="colorpicker_right">
+				<div class="colorpicker_bottom">
+
+				</div>	
+			</div>
+		</div>
+		<div class="picker_hue picker_box_height">
+			
+		</div>
+	</div>
+</body>
+</html>
